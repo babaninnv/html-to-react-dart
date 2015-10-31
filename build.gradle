@@ -1,12 +1,15 @@
 apply plugin: 'java'
 
 repositories {
-    jcenter()
+    maven { url "http://localhost:8081/nexus/content/repositories/central/" }
 }
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
-    compile 'org.attoparser:attoparser:2.0.0.BETA3'
+    compile 'org.attoparser:attoparser:2.0.0.BETA04'
+    compile 'org.unbescape:unbescape:1.1.1.RELEASE'
+
+    compile 'org.apache.commons:commons-lang3:3.4'
 
     testCompile 'junit:junit:4.12'
 }
