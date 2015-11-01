@@ -4,7 +4,8 @@ apply plugin: 'application'
 mainClassName = "ru.babaninnv.translator.html.react.dart.Translator";
 
 repositories {
-    maven { url "http://localhost:8081/nexus/content/repositories/central" }
+   mavenCentral()
+   //maven { url "http://localhost:8081/nexus/content/repositories/central" }
 }
 
 dependencies {
