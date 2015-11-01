@@ -1,16 +1,27 @@
 apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "ru.babaninnv.translator.html.react.dart.Translator";
 
 repositories {
-    maven { url "http://localhost:8081/nexus/content/repositories/central/" }
+    maven { url "http://localhost:8081/nexus/content/repositories/central" }
 }
 
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.12'
     compile 'org.attoparser:attoparser:2.0.0.BETA04'
     compile 'org.unbescape:unbescape:1.1.1.RELEASE'
-
+    compile 'com.beust:jcommander:1.48'
     compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'commons-io:commons-io:2.4'
 
     testCompile 'junit:junit:4.12'
 }
 
+jar {
+  manifest {
+        attributes("Implementation-Title": "Gradle",
+                   "Implementation-Version": "1.0",
+                   "Main-Class": "ru.babaninnv.translator.html.react.dart.Translator")
+  }
+}

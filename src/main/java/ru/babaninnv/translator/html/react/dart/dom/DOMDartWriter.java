@@ -1,13 +1,15 @@
 package ru.babaninnv.translator.html.react.dart.dom;
 
+import static ru.babaninnv.translator.html.react.dart.utils.StringWriterUtils.writeEmpty;
+import static ru.babaninnv.translator.html.react.dart.utils.StringWriterUtils.writeNextLine;
+import static ru.babaninnv.translator.html.react.dart.utils.TextUtils.*;
+
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.attoparser.dom.CDATASection;
 import org.attoparser.dom.Comment;
@@ -21,10 +23,7 @@ import org.attoparser.dom.XmlDeclaration;
 
 public class DOMDartWriter {
 
-  private static final String LINE_SEPARATOR = System.getProperty("line.separator");
   private static final int OFFSET = 2;
-
-  private static boolean skip;
   private static int currentOffset = 0;
 
 
@@ -37,7 +36,6 @@ public class DOMDartWriter {
       return;
     }
     if (node instanceof Element) {
-      //writeElement((Element) node, writer);
       writeReactDartElement((Element) node, writer);
       return;
     }
@@ -65,10 +63,7 @@ public class DOMDartWriter {
       writeProcessingInstruction((ProcessingInstruction) node, writer);
       return;
     }
-
   }
-
-
 
   public static void writeCDATASection(final CDATASection cdataSection, final Writer writer) throws IOException {
 
@@ -78,16 +73,12 @@ public class DOMDartWriter {
 
   }
 
-
-
   public static void writeComment(final Comment comment, final Writer writer) throws IOException {
 
     writeEmpty(currentOffset, writer);
     writer.write("// ");
     writer.write(comment.getContent());
   }
-
-
 
   public static void writeDocType(final DocType docType, final Writer writer) throws IOException {
 
@@ -132,8 +123,6 @@ public class DOMDartWriter {
 
   }
 
-
-
   public static void writeDocument(final Document document, final Writer writer) throws IOException {
 
     if (!document.hasChildren()) { return; }
@@ -144,48 +133,7 @@ public class DOMDartWriter {
 
   }
 
-
-
-  public static void writeElement(final Element element, final Writer writer) throws IOException {
-
-    writer.write('<');
-    writer.write(element.getElementName());
-
-    if (element.hasAttributes()) {
-      final Map<String, String> attributes = element.getAttributeMap();
-      for (final Map.Entry<String, String> attributeEntry : attributes.entrySet()) {
-        writer.write(' ');
-        writer.write(attributeEntry.getKey());
-        writer.write('=');
-        writer.write('"');
-        writer.write(attributeEntry.getValue());
-        writer.write('"');
-      }
-    }
-
-    if (!element.hasChildren()) {
-      writer.write('/');
-      writer.write('>');
-      return;
-    }
-
-    writer.write('>');
-
-    for (final INode child : element.getChildren()) {
-      write(child, writer);
-    }
-
-
-    writer.write('<');
-    writer.write('/');
-    writer.write(element.getElementName());
-    writer.write('>');
-
-  }
-
   public static void writeReactDartElement(final Element element, final Writer writer) throws IOException {
-
-    boolean first;
 
     writeEmpty(currentOffset, writer);
     writer.write(element.getElementName());
@@ -200,7 +148,6 @@ public class DOMDartWriter {
     if (!element.hasChildren()) {
       writer.write('}');
       writer.write(')');
-
       return;
     }
 
@@ -209,49 +156,24 @@ public class DOMDartWriter {
     writer.write(' ');
     writeNextLine(writer);
 
-    List<INode> children = element.getChildren();
+    List<INode> children = filterChildren(element.getChildren());
 
     currentOffset += OFFSET;
-
     for (int i = 0; i < children.size(); i++) {
       INode child = children.get(i);
-
       write(child, writer);
 
-      if ((child instanceof Comment) && (i < (children.size() - 2))) {
-        writeNextLine(writer);
-      } else if ((child instanceof Element) && (i < (children.size() - 2))) {
+      if (i < (children.size() - 1)) {
         writer.write(',');
         writer.write(' ');
         writeNextLine(writer);
-      } else if ((child instanceof Element) && (i < (children.size() - 2))) {
-        writeNextLine(writer);
-      } else if ((child instanceof Text) && (i == (children.size() - 1))) {
-        writeNextLine(writer);
       }
     }
-
+    writeNextLine(writer);
     currentOffset -= OFFSET;
     writeEmpty(currentOffset, writer);
     writer.write(')');
 
-  }
-
-
-  public static void writeProcessingInstruction(final ProcessingInstruction processingInstruction, final Writer writer) throws IOException {
-
-    writer.write('<');
-    writer.write('?');
-    writer.write(processingInstruction.getTarget());
-
-    final String content = processingInstruction.getContent();
-    if (content != null) {
-      writer.write(' ');
-      writer.write(content);
-    }
-
-    writer.write('?');
-    writer.write('>');
   }
 
   public static void writeText(final Text text, final Writer writer) throws IOException {
@@ -259,33 +181,9 @@ public class DOMDartWriter {
     validateNotNull(text, "Text node cannot be null");
     validateNotNull(writer, "Writer cannot be null");
 
-    String[] content = trim(text.getContent());
-
-    if ((content == null) || (content.length == 0)) {
-      skip = true;
-      return;
-    }
-
     writeEmpty(currentOffset, writer);
-    writer.write("\"" + StringUtils.join(content, "\", \"") + "\"");
+    writer.write("\"" + StringUtils.join(trim(text.getContent()), "\", \"") + "\"");
   }
-
-  private static String[] trim(String content) {
-
-    String[] strings = content.split(LINE_SEPARATOR);
-    List<String> parsedStrings = new ArrayList<>();
-
-    for (int j = 0; j < strings.length; j++) {
-      strings[j] = StringUtils.trimToEmpty(strings[j]);
-      if (strings[j].length() == 0) continue;
-
-      parsedStrings.add(strings[j]);
-    }
-
-    return parsedStrings.toArray(new String[parsedStrings.size()]);
-
-  }
-
 
   public static void writeXmlDeclaration(final XmlDeclaration xmlDeclaration, final Writer writer) throws IOException {
 
@@ -313,16 +211,6 @@ public class DOMDartWriter {
     writer.write('?');
     writer.write('>');
 
-  }
-
-  public static void writeEmpty(int count, final Writer writer) throws IOException {
-    String result = "";
-
-    for (int i = 0; i < count; i++) {
-      result = result.concat(" ");
-    }
-
-    writer.write(result);
   }
 
   public static void writeAttributes(Map<String, String> attributes, final Writer writer) throws IOException {
@@ -355,21 +243,44 @@ public class DOMDartWriter {
 
   public static void writeStyles(String style, final Writer writer) throws IOException {
     String result = "";
-
-
-
     writer.write(result);
-  }
-
-  public static void writeNextLine(final Writer writer) throws IOException {
-    writer.write(LINE_SEPARATOR);
   }
 
   private static void validateNotNull(final Object obj, final String message) {
     if (obj == null) { throw new IllegalArgumentException(message); }
   }
 
+  public static void writeProcessingInstruction(final ProcessingInstruction processingInstruction, final Writer writer) throws IOException {
 
+    writer.write('<');
+    writer.write('?');
+    writer.write(processingInstruction.getTarget());
+
+    final String content = processingInstruction.getContent();
+    if (content != null) {
+      writer.write(' ');
+      writer.write(content);
+    }
+
+    writer.write('?');
+    writer.write('>');
+  }
+
+  private static List<INode> filterChildren(List<INode> children) {
+
+    List<INode> result = new ArrayList<>();
+
+    for (INode node : children) {
+      if (node instanceof Text) {
+        String[] content = trim(((Text) node).getContent());
+        if ((content == null) || (content.length == 0)) continue;
+      }
+
+      result.add(node);
+    }
+
+    return result;
+  }
 
   private DOMDartWriter() {
     super();
