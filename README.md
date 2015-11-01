@@ -1,4 +1,4 @@
-Converter HTML to [React-Dart](url "https://github.com/cleandart/react-dart#using-browser-native-elements")  format
+Converter HTML to [React-Dart](https://github.com/cleandart/react-dart#using-browser-native-elements)  format
 
 Exmaple:
 ```html
