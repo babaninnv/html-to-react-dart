@@ -9,6 +9,11 @@ public class Cli {
 
   @Parameter(names = "-out", required = false, description = "Output folder. Default: current")
   private String outputFolder = "";
+  
+  /*
+  @Parameter(names = "-only-html-convert", required = false, description = "")
+  private boolean className = "";
+  */
 
   public String getFileName() {
     return fileName;

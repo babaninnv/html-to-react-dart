@@ -24,7 +24,7 @@ import org.attoparser.dom.XmlDeclaration;
 public class DOMDartWriter {
 
   private static final int OFFSET = 2;
-  private static int currentOffset = 0;
+  public static int currentOffset = 0;
 
 
   public static void write(final INode node, final Writer writer) throws IOException {
