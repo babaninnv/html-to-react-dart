@@ -43,7 +43,7 @@ div({"class": "col-md-4 col-sm-4"},
 )
 ```
 
-# How use it:
+# How to use it:
 
 1. Clone this repository: ```git clone git@gitlab.com:nikitared/html-to-react-dart.git```
 2. Run gradlew file with task installDist: ```gradlew.bat installDist```
