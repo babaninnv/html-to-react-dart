@@ -17,7 +17,7 @@ import org.attoparser.util.TextUtil;
  * Structure gets from org.attoparser.HtmlElements
  * */
 public class HtmlReactAttributes {
-  private static final HtmlElementRepository ATTRIBUTES = new HtmlElementRepository();
+  private static final HtmlReactAttributeRepository ATTRIBUTES = new HtmlReactAttributeRepository();
 
   static final Set<HtmlReactAttribute> ALL_REACT_ATTRIBUTES;
 
@@ -230,7 +230,7 @@ public class HtmlReactAttributes {
   /*
    * Note this will always be case-insensitive, because we are dealing with HTML.
    */
-  static HtmlReactAttribute forName(final char[] elementNameBuffer, final int offset, final int len) {
+  public static HtmlReactAttribute forName(final char[] elementNameBuffer, final int offset, final int len) {
     if (elementNameBuffer == null) { throw new IllegalArgumentException("Buffer cannot be null"); }
     return ATTRIBUTES.getElement(elementNameBuffer, offset, len);
   }
@@ -247,7 +247,7 @@ public class HtmlReactAttributes {
    * (created when asking the repository for them when they do not exist yet. As any thread can
    * create a new element, this has to be lock-protected.
    */
-  static final class HtmlElementRepository {
+  static final class HtmlReactAttributeRepository {
 
     private final List<HtmlReactAttribute> standardRepository; // read-only, no sync needed
     private final List<HtmlReactAttribute> repository; // read-write, sync will be needed
@@ -256,7 +256,7 @@ public class HtmlReactAttributes {
     private final Lock readLock = this.lock.readLock();
     private final Lock writeLock = this.lock.writeLock();
 
-    HtmlElementRepository() {
+    HtmlReactAttributeRepository() {
       this.standardRepository = new ArrayList<HtmlReactAttribute>(178);
       this.repository = new ArrayList<HtmlReactAttribute>(178);
     }

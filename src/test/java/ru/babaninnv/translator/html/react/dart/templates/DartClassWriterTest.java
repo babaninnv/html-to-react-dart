@@ -42,8 +42,6 @@ public class DartClassWriterTest {
 
       DartClassWriter.write(dartClass, writer);
 
-      //System.out.println(writer.toString());
-
       writer.flush();
       writer.close();
 

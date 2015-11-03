@@ -21,6 +21,9 @@ import org.attoparser.dom.ProcessingInstruction;
 import org.attoparser.dom.Text;
 import org.attoparser.dom.XmlDeclaration;
 
+import ru.babaninnv.translator.html.react.dart.HtmlReactAttribute;
+import ru.babaninnv.translator.html.react.dart.HtmlReactAttributes;
+
 public class DOMDartWriter {
 
   private static final int OFFSET = 2;
@@ -238,7 +241,8 @@ public class DOMDartWriter {
   }
 
   private static void writeAttributeName(String key, Writer writer) throws IOException {
-    writer.write(key);
+    HtmlReactAttribute attribute = HtmlReactAttributes.forName(key.toCharArray(), 0, key.length());
+    writer.write(attribute.getReactName());
   }
 
   public static void writeStyles(String style, final Writer writer) throws IOException {

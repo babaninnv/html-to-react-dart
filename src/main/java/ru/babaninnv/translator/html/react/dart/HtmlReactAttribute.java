@@ -12,6 +12,10 @@ public class HtmlReactAttribute {
     this.reactName = reactName.toCharArray();
   }
 
+  public char[] getReactName() {
+    return reactName;
+  }
+
   @Override
   public String toString() {
       final StringBuilder strBuilder = new StringBuilder();
