@@ -14,6 +14,8 @@ import org.attoparser.ParseException;
 import org.attoparser.config.ParseConfiguration;
 import org.attoparser.dom.DOMMarkupParser;
 import org.attoparser.dom.Document;
+import org.attoparser.dom.Element;
+import org.attoparser.dom.INode;
 
 import com.beust.jcommander.JCommander;
 
@@ -55,17 +57,30 @@ public class Translator {
 
       writer = new FileWriter(new File(baseName + ".dart"));
 
-      System.out.println("Try to read file: " + file.getAbsolutePath());
+      System.out.println("Try to read file: " + file.getAbsolutePath() + ", encoding: " + writer.getEncoding());
 
       final InputStream is = new FileInputStream(file);
-      final Reader reader = new BufferedReader(new InputStreamReader(is, "ISO-8859-1"));
+      final Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 
       DOMMarkupParser parser = new DOMMarkupParser(ParseConfiguration.htmlConfiguration());
       document = parser.parse(reader);
 
+      if ((document.getChildren() != null) && (document.getChildren().size() > 1)) {
+
+        Document wrappedDocument = new Document("document-name");
+        Element divContainer = new Element("div");
+
+        for (INode node: document.getChildren()) {
+          divContainer.addChild(node);
+        }
+
+        wrappedDocument.addChild(divContainer);
+        document = wrappedDocument;
+      }
+
       DOMDartWriter.writeDocument(document, writer);
 
-      System.out.println(writer.toString());
+      System.out.println("Convert complete");
 
       writer.flush();
       writer.close();

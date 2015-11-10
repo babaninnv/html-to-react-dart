@@ -21,17 +21,12 @@ public class HtmlReactAttributes {
 
   static final Set<HtmlReactAttribute> ALL_REACT_ATTRIBUTES;
 
-  static final HtmlReactAttribute ID = new HtmlReactAttribute("id", "id");
   static final HtmlReactAttribute CLASSNAME = new HtmlReactAttribute("class", "className");
-  static final HtmlReactAttribute HREF = new HtmlReactAttribute("href", "href");
-  static final HtmlReactAttribute ACCEPT = new HtmlReactAttribute("accept", "accept");
   static final HtmlReactAttribute ACCEPT_CHARSET = new HtmlReactAttribute("acceptCharset", "acceptCharset");
   static final HtmlReactAttribute ACCESSKEY = new HtmlReactAttribute("accessKey", "accessKey");
   static final HtmlReactAttribute ACTION = new HtmlReactAttribute("action", "action");
-  static final HtmlReactAttribute ALLOWFULLSCREEN = new HtmlReactAttribute("allowFullScreen", "allowFullScreen");
+  static final HtmlReactAttribute ALLOWFULLSCREEN = new HtmlReactAttribute("allowfullscreen", "allowFullScreen");
   static final HtmlReactAttribute ALLOWTRANSPARENCY = new HtmlReactAttribute("allowTransparency", "allowTransparency");
-  static final HtmlReactAttribute ALT = new HtmlReactAttribute("alt", "alt");
-  static final HtmlReactAttribute ASYNC = new HtmlReactAttribute("async", "async");
   static final HtmlReactAttribute AUTOCOMPLETE = new HtmlReactAttribute("autoComplete", "autoComplete");
   static final HtmlReactAttribute AUTOFOCUS = new HtmlReactAttribute("autoFocus", "autoFocus");
   static final HtmlReactAttribute AUTOPLAY = new HtmlReactAttribute("autoPlay", "autoPlay");
@@ -39,10 +34,7 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute CELLPADDING = new HtmlReactAttribute("cellPadding", "cellPadding");
   static final HtmlReactAttribute CELLSPACING = new HtmlReactAttribute("cellspacing", "cellSpacing");
   static final HtmlReactAttribute CHARSET = new HtmlReactAttribute("charset", "charSet");
-  static final HtmlReactAttribute CHALLENGE = new HtmlReactAttribute("challenge", "challenge");
-  static final HtmlReactAttribute CHECKED = new HtmlReactAttribute("checked", "checked");
   static final HtmlReactAttribute CLASSID = new HtmlReactAttribute("classID", "classID");
-  static final HtmlReactAttribute COLS = new HtmlReactAttribute("cols", "cols");
   static final HtmlReactAttribute COLSPAN = new HtmlReactAttribute("colspan", "colSpan");
   static final HtmlReactAttribute CONTENT = new HtmlReactAttribute("content", "content");
   static final HtmlReactAttribute CONTENTEDITABLE = new HtmlReactAttribute("contenteditable", "contentEditable");
@@ -52,12 +44,8 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute CROSSORIGIN = new HtmlReactAttribute("crossOrigin", "crossOrigin");
   static final HtmlReactAttribute DATA = new HtmlReactAttribute("data", "data");
   static final HtmlReactAttribute DATETIME = new HtmlReactAttribute("dateTime", "dateTime");
-  static final HtmlReactAttribute DEFER = new HtmlReactAttribute("defer", "defer");
-  static final HtmlReactAttribute DIR = new HtmlReactAttribute("dir", "dir");
-  static final HtmlReactAttribute DISABLED = new HtmlReactAttribute("disabled", "disabled");
-  static final HtmlReactAttribute DOWNLOAD = new HtmlReactAttribute("download", "download");
   static final HtmlReactAttribute DRAGGABLE = new HtmlReactAttribute("draggable", "draggable");
-  static final HtmlReactAttribute ENCTYPE = new HtmlReactAttribute("encType", "encType");
+  static final HtmlReactAttribute ENCTYPE = new HtmlReactAttribute("enctype", "encType");
   static final HtmlReactAttribute FORM = new HtmlReactAttribute("form", "form");
   static final HtmlReactAttribute FORMACTION = new HtmlReactAttribute("formAction", "formAction");
   static final HtmlReactAttribute FORMENCTYPE = new HtmlReactAttribute("formEncType", "formEncType");
@@ -65,10 +53,6 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute FORMNOVALIDATE = new HtmlReactAttribute("formNoValidate", "formNoValidate");
   static final HtmlReactAttribute FORMTARGET = new HtmlReactAttribute("formTarget", "formTarget");
   static final HtmlReactAttribute FRAMEBORDER = new HtmlReactAttribute("frameBorder", "frameBorder");
-  static final HtmlReactAttribute HEADERS = new HtmlReactAttribute("headers", "headers");
-  static final HtmlReactAttribute HEIGHT = new HtmlReactAttribute("height", "height");
-  static final HtmlReactAttribute HIDDEN = new HtmlReactAttribute("hidden", "hidden");
-  static final HtmlReactAttribute HIGH = new HtmlReactAttribute("high", "high");
   static final HtmlReactAttribute HREFLANG = new HtmlReactAttribute("hreflang", "hrefLang");
   static final HtmlReactAttribute HTMLFOR = new HtmlReactAttribute("for", "htmlFor");
   static final HtmlReactAttribute HTTPEQUIV = new HtmlReactAttribute("http-equiv", "httpEquiv");
@@ -76,65 +60,19 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute INPUTMODE = new HtmlReactAttribute("inputMode", "inputMode");
   static final HtmlReactAttribute KEYPARAMS = new HtmlReactAttribute("keyParams", "keyParams");
   static final HtmlReactAttribute KEYTYPE = new HtmlReactAttribute("keyType", "keyType");
-  static final HtmlReactAttribute LABEL = new HtmlReactAttribute("label", "label");
-  static final HtmlReactAttribute LANG = new HtmlReactAttribute("lang", "lang");
-  static final HtmlReactAttribute LIST = new HtmlReactAttribute("list", "list");
-  static final HtmlReactAttribute LOOP = new HtmlReactAttribute("loop", "loop");
-  static final HtmlReactAttribute LOW = new HtmlReactAttribute("low", "low");
-  static final HtmlReactAttribute MANIFEST = new HtmlReactAttribute("manifest", "manifest");
   static final HtmlReactAttribute MARGINHEIGHT = new HtmlReactAttribute("marginHeight", "marginHeight");
   static final HtmlReactAttribute MARGINWIDTH = new HtmlReactAttribute("marginWidth", "marginWidth");
-  static final HtmlReactAttribute MAX = new HtmlReactAttribute("max", "max");
   static final HtmlReactAttribute MAXLENGTH = new HtmlReactAttribute("maxLength", "maxLength");
-  static final HtmlReactAttribute MEDIA = new HtmlReactAttribute("media", "media");
   static final HtmlReactAttribute MEDIAGROUP = new HtmlReactAttribute("mediaGroup", "mediaGroup");
-  static final HtmlReactAttribute METHOD = new HtmlReactAttribute("method", "method");
-  static final HtmlReactAttribute MIN = new HtmlReactAttribute("min", "min");
-  static final HtmlReactAttribute MINLENGTH = new HtmlReactAttribute("minlength", "minlength");
-  static final HtmlReactAttribute MULTIPLE = new HtmlReactAttribute("multiple", "multiple");
-  static final HtmlReactAttribute MUTED = new HtmlReactAttribute("muted", "muted");
-  static final HtmlReactAttribute NAME = new HtmlReactAttribute("name", "name");
   static final HtmlReactAttribute NOVALIDATE = new HtmlReactAttribute("noValidate", "noValidate");
-  static final HtmlReactAttribute OPEN = new HtmlReactAttribute("open", "open");
-  static final HtmlReactAttribute OPTIMUM = new HtmlReactAttribute("optimum", "optimum");
-  static final HtmlReactAttribute PATTERN = new HtmlReactAttribute("pattern", "pattern");
-  static final HtmlReactAttribute PLACEHOLDER = new HtmlReactAttribute("placeholder", "placeholder");
-  static final HtmlReactAttribute POSTER = new HtmlReactAttribute("poster", "poster");
-  static final HtmlReactAttribute PRELOAD = new HtmlReactAttribute("preload", "preload");
   static final HtmlReactAttribute RADIOGROUP = new HtmlReactAttribute("radioGroup", "radioGroup");
-  static final HtmlReactAttribute READONLY = new HtmlReactAttribute("readOnly", "readOnly");
-  static final HtmlReactAttribute REL = new HtmlReactAttribute("rel", "rel");
-  static final HtmlReactAttribute REQUIRED = new HtmlReactAttribute("required", "required");
-  static final HtmlReactAttribute ROLE = new HtmlReactAttribute("role", "role");
-  static final HtmlReactAttribute ROWS = new HtmlReactAttribute("rows", "rows");
-  static final HtmlReactAttribute ROWSPAN = new HtmlReactAttribute("rowSpan", "rowSpan");
-  static final HtmlReactAttribute SANDBOX = new HtmlReactAttribute("sandbox", "sandbox");
-  static final HtmlReactAttribute SCOPE = new HtmlReactAttribute("scope", "scope");
-  static final HtmlReactAttribute SCOPED = new HtmlReactAttribute("scoped", "scoped");
-  static final HtmlReactAttribute SCROLLING = new HtmlReactAttribute("scrolling", "scrolling");
-  static final HtmlReactAttribute SEAMLESS = new HtmlReactAttribute("seamless", "seamless");
-  static final HtmlReactAttribute SELECTED = new HtmlReactAttribute("selected", "selected");
-  static final HtmlReactAttribute SHAPE = new HtmlReactAttribute("shape", "shape");
-  static final HtmlReactAttribute SIZE = new HtmlReactAttribute("size", "size");
-  static final HtmlReactAttribute SIZES = new HtmlReactAttribute("sizes", "sizes");
-  static final HtmlReactAttribute SPAN = new HtmlReactAttribute("span", "span");
+  static final HtmlReactAttribute READONLY = new HtmlReactAttribute("readonly", "readOnly");
+  static final HtmlReactAttribute ROWSPAN = new HtmlReactAttribute("rowspan", "rowSpan");
   static final HtmlReactAttribute SPELLCHECK = new HtmlReactAttribute("spellCheck", "spellCheck");
-  static final HtmlReactAttribute SRC = new HtmlReactAttribute("src", "src");
   static final HtmlReactAttribute SRCDOC = new HtmlReactAttribute("srcDoc", "srcDoc");
   static final HtmlReactAttribute SRCSET = new HtmlReactAttribute("srcSet", "srcSet");
-  static final HtmlReactAttribute START = new HtmlReactAttribute("start", "start");
-  static final HtmlReactAttribute STEP = new HtmlReactAttribute("step", "step");
-  static final HtmlReactAttribute STYLE = new HtmlReactAttribute("style", "style");
-  static final HtmlReactAttribute SUMMARY = new HtmlReactAttribute("summary", "summary");
   static final HtmlReactAttribute TABINDEX = new HtmlReactAttribute("tabIndex", "tabIndex");
-  static final HtmlReactAttribute TARGET = new HtmlReactAttribute("target", "target");
-  static final HtmlReactAttribute TITLE = new HtmlReactAttribute("title", "title");
-  static final HtmlReactAttribute TYPE = new HtmlReactAttribute("type", "type");
   static final HtmlReactAttribute USEMAP = new HtmlReactAttribute("useMap", "useMap");
-  static final HtmlReactAttribute VALUE = new HtmlReactAttribute("value", "value");
-  static final HtmlReactAttribute WIDTH = new HtmlReactAttribute("width", "width");
-  static final HtmlReactAttribute WMODE = new HtmlReactAttribute("wmode", "wmode");
-  static final HtmlReactAttribute WRAP = new HtmlReactAttribute("wrap", "wrap");
   static final HtmlReactAttribute AUTOCAPITALIZE = new HtmlReactAttribute("autoCapitalize", "autoCapitalize");
   static final HtmlReactAttribute AUTOCORRECT = new HtmlReactAttribute("autoCorrect", "autoCorrect");
   static final HtmlReactAttribute PROPERTY = new HtmlReactAttribute("property", "property");
@@ -144,49 +82,28 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute ITEMREF = new HtmlReactAttribute("itemRef", "itemRef");
   static final HtmlReactAttribute ITEMID = new HtmlReactAttribute("itemID", "itemID");
   static final HtmlReactAttribute UNSELECTABLE = new HtmlReactAttribute("unselectable", "unselectable");
-  static final HtmlReactAttribute RESULTS = new HtmlReactAttribute("results", "results");
   static final HtmlReactAttribute AUTOSAVE = new HtmlReactAttribute("autoSave", "autoSave");
   static final HtmlReactAttribute CLIPPATH = new HtmlReactAttribute("clipPath", "clipPath");
-  static final HtmlReactAttribute CX = new HtmlReactAttribute("cx", "cx");
-  static final HtmlReactAttribute CY = new HtmlReactAttribute("cy", "cy");
-  static final HtmlReactAttribute D = new HtmlReactAttribute("d", "d");
-  static final HtmlReactAttribute DX = new HtmlReactAttribute("dx", "dx");
-  static final HtmlReactAttribute DY = new HtmlReactAttribute("dy", "dy");
-  static final HtmlReactAttribute FILL = new HtmlReactAttribute("fill", "fill");
   static final HtmlReactAttribute FILLOPACITY = new HtmlReactAttribute("fillOpacity", "fillOpacity");
-  static final HtmlReactAttribute HEAD = new HtmlReactAttribute("fontFamily", "");
+  static final HtmlReactAttribute HEAD = new HtmlReactAttribute("fontFamily", "fontFamily");
   static final HtmlReactAttribute FONTSIZE = new HtmlReactAttribute("fontSize", "fontSize");
-  static final HtmlReactAttribute FX = new HtmlReactAttribute("fx", "fx");
-  static final HtmlReactAttribute FY = new HtmlReactAttribute("fy", "fy");
   static final HtmlReactAttribute GRADIENTTRANSFORM = new HtmlReactAttribute("gradientTransform", "gradientTransform");
   static final HtmlReactAttribute GRADIENTUNITS = new HtmlReactAttribute("gradientUnits", "gradientUnits");
   static final HtmlReactAttribute MARKEREND = new HtmlReactAttribute("markerEnd", "markerEnd");
   static final HtmlReactAttribute MARKERMID = new HtmlReactAttribute("markerMid", "markerMid");
   static final HtmlReactAttribute MARKERSTART = new HtmlReactAttribute("markerStart", "markerStart");
-  static final HtmlReactAttribute OFFSET = new HtmlReactAttribute("offset", "offset");
-  static final HtmlReactAttribute OPACITY = new HtmlReactAttribute("opacity", "opacity");
   static final HtmlReactAttribute PATTERNCONTENTUNITS = new HtmlReactAttribute("patternContentUnits", "patternContentUnits");
   static final HtmlReactAttribute PATTERNUNITS = new HtmlReactAttribute("patternUnits", "patternUnits");
-  static final HtmlReactAttribute POINTS = new HtmlReactAttribute("points", "points");
   static final HtmlReactAttribute PRESERVEASPECTRATIO = new HtmlReactAttribute("preserveAspectRatio", "preserveAspectRatio");
-  static final HtmlReactAttribute R = new HtmlReactAttribute("r", "r");
-  static final HtmlReactAttribute RX = new HtmlReactAttribute("rx", "rx");
-  static final HtmlReactAttribute RY = new HtmlReactAttribute("ry", "ry");
   static final HtmlReactAttribute SPREADMETHOD = new HtmlReactAttribute("spreadMethod", "spreadMethod");
   static final HtmlReactAttribute STOPCOLOR = new HtmlReactAttribute("stopColor", "stopColor");
   static final HtmlReactAttribute STOPOPACITY = new HtmlReactAttribute("stopOpacity", "stopOpacity");
-  static final HtmlReactAttribute STROKE = new HtmlReactAttribute("stroke", "stroke");
   static final HtmlReactAttribute STROKEDASHARRAY = new HtmlReactAttribute("strokeDasharray", "strokeDasharray");
   static final HtmlReactAttribute STROKELINECAP = new HtmlReactAttribute("strokeLinecap", "strokeLinecap");
   static final HtmlReactAttribute STROKEOPACITY = new HtmlReactAttribute("strokeOpacity", "strokeOpacity");
   static final HtmlReactAttribute STROKEWIDTH = new HtmlReactAttribute("strokeWidth", "strokeWidth");
   static final HtmlReactAttribute TEXTANCHOR = new HtmlReactAttribute("textAnchor", "textAnchor");
-  static final HtmlReactAttribute TRANSFORM = new HtmlReactAttribute("transform", "transform");
-  static final HtmlReactAttribute VERSION = new HtmlReactAttribute("version", "version");
   static final HtmlReactAttribute VIEWBOX = new HtmlReactAttribute("viewBox", "viewBox");
-  static final HtmlReactAttribute X1 = new HtmlReactAttribute("x1", "x1");
-  static final HtmlReactAttribute X2 = new HtmlReactAttribute("x2", "x2");
-  static final HtmlReactAttribute X = new HtmlReactAttribute("x", "x");
   static final HtmlReactAttribute XLINKACTUATE = new HtmlReactAttribute("xlinkActuate", "xlinkActuate");
   static final HtmlReactAttribute XLINKARCROLE = new HtmlReactAttribute("xlinkArcrole", "xlinkArcrole");
   static final HtmlReactAttribute XLINKHREF = new HtmlReactAttribute("xlinkHref", "xlinkHref");
@@ -195,32 +112,71 @@ public class HtmlReactAttributes {
   static final HtmlReactAttribute XLINKTITLE = new HtmlReactAttribute("xlinkTitle", "xlinkTitle");
   static final HtmlReactAttribute XLINKTYPE = new HtmlReactAttribute("xlinkType", "xlinkType");
   static final HtmlReactAttribute XMLBASE = new HtmlReactAttribute("xmlBase", "xmlBase");
-  static final HtmlReactAttribute XMLLANG = new HtmlReactAttribute("xmlLang", "");
+  static final HtmlReactAttribute XMLLANG = new HtmlReactAttribute("xmlLang", "xmlLang");
   static final HtmlReactAttribute XMLSPACE = new HtmlReactAttribute("xmlSpace", "xmlSpace");
-  static final HtmlReactAttribute Y1 = new HtmlReactAttribute("y1", "y1");
-  static final HtmlReactAttribute Y2 = new HtmlReactAttribute("y2", "y2");
-  static final HtmlReactAttribute Y = new HtmlReactAttribute("y", "y");
 
+  static final HtmlReactAttribute onchange = new HtmlReactAttribute("onchange", "onChange");
 
+  static final HtmlReactAttribute onClick = new HtmlReactAttribute("onClick", "onClick");
+  static final HtmlReactAttribute onContextMenu = new HtmlReactAttribute("onContextMenu", "onContextMenu");
+  static final HtmlReactAttribute onDoubleClick = new HtmlReactAttribute("onDoubleClick", "onDoubleClick");
+  static final HtmlReactAttribute onDrag = new HtmlReactAttribute("onDrag", "onDrag");
+  static final HtmlReactAttribute onDragEnd = new HtmlReactAttribute("onDragEnd", "onDragEnd");
+  static final HtmlReactAttribute onDragEnter = new HtmlReactAttribute("onDragEnter", "onDragEnter");
+  static final HtmlReactAttribute onDragExit = new HtmlReactAttribute("onDragExit", "onDragExit");
+  static final HtmlReactAttribute onDragLeave = new HtmlReactAttribute("onDragLeave", "onDragLeave");
+  static final HtmlReactAttribute onDragOver = new HtmlReactAttribute("onDragOver", "onDragOver");
+  static final HtmlReactAttribute onDragStart = new HtmlReactAttribute("onDragStart", "onDragStart");
+  static final HtmlReactAttribute onDrop = new HtmlReactAttribute("onDrop", "onDrop");
+  static final HtmlReactAttribute onMouseDown = new HtmlReactAttribute("onMouseDown", "onMouseDown");
+  static final HtmlReactAttribute onMouseEnter = new HtmlReactAttribute("onMouseEnter", "onMouseEnter");
+  static final HtmlReactAttribute onMouseLeave = new HtmlReactAttribute("onMouseLeave", "onMouseLeave");
+  static final HtmlReactAttribute onMouseMove = new HtmlReactAttribute("onMouseMove", "onMouseMove");
+  static final HtmlReactAttribute onMouseOut = new HtmlReactAttribute("onMouseOut", "onMouseOut");
+  static final HtmlReactAttribute onMouseOver = new HtmlReactAttribute("onMouseOver", "onMouseOver");
+  static final HtmlReactAttribute onMouseUp = new HtmlReactAttribute("onMouseUp", "onMouseUp");
+  static final HtmlReactAttribute onSelect = new HtmlReactAttribute("onSelect", "onSelect");
+  static final HtmlReactAttribute onTouchCancel = new HtmlReactAttribute("onTouchCancel", "onTouchCancel");
+  static final HtmlReactAttribute onTouchEnd = new HtmlReactAttribute("onTouchEnd", "onTouchEnd");
+  static final HtmlReactAttribute onTouchMove = new HtmlReactAttribute("onTouchMove", "onTouchMove");
+  static final HtmlReactAttribute onTouchStart = new HtmlReactAttribute("onTouchStart", "onTouchStart");
+  static final HtmlReactAttribute onAbort = new HtmlReactAttribute("onAbort", "onAbort");
+  static final HtmlReactAttribute onCanPlay = new HtmlReactAttribute("onCanPlay", "onCanPlay");
+  static final HtmlReactAttribute onCanPlayThrough = new HtmlReactAttribute("onCanPlayThrough", "onCanPlayThrough");
+  static final HtmlReactAttribute onDurationChange = new HtmlReactAttribute("onDurationChange", "onDurationChange");
+  static final HtmlReactAttribute onEmptied = new HtmlReactAttribute("onEmptied", "onEmptied");
+  static final HtmlReactAttribute onEncrypted = new HtmlReactAttribute("onEncrypted", "onEncrypted");
+  static final HtmlReactAttribute onEnded = new HtmlReactAttribute("onEnded", "onEnded");
+  static final HtmlReactAttribute onError = new HtmlReactAttribute("onError", "onError");
+  static final HtmlReactAttribute onLoadedData = new HtmlReactAttribute("onLoadedData", "onLoadedData");
+  static final HtmlReactAttribute onLoadedMetadata = new HtmlReactAttribute("onLoadedMetadata", "onLoadedMetadata");
+  static final HtmlReactAttribute onLoadStart = new HtmlReactAttribute("onLoadStart", "onLoadStart");
+  static final HtmlReactAttribute onPause = new HtmlReactAttribute("onPause", "onPause");
+  static final HtmlReactAttribute onPlay = new HtmlReactAttribute("onPlay", "onPlay");
+  static final HtmlReactAttribute onPlaying = new HtmlReactAttribute("onPlaying", "onPlaying");
+  static final HtmlReactAttribute onProgress = new HtmlReactAttribute("onProgress", "onProgress");
+  static final HtmlReactAttribute onRateChange = new HtmlReactAttribute("onRateChange", "onRateChange");
+  static final HtmlReactAttribute onSeeked = new HtmlReactAttribute("onSeeked", "onSeeked");
+  static final HtmlReactAttribute onSeeking = new HtmlReactAttribute("onSeeking", "onSeeking");
+  static final HtmlReactAttribute onStalled = new HtmlReactAttribute("onStalled", "onStalled");
+  static final HtmlReactAttribute onSuspend = new HtmlReactAttribute("onSuspend", "onSuspend");
+  static final HtmlReactAttribute onTimeUpdate = new HtmlReactAttribute("onTimeUpdate", "onTimeUpdate");
+  static final HtmlReactAttribute onVolumeChange = new HtmlReactAttribute("onVolumeChange", "onVolumeChange");
+  static final HtmlReactAttribute onWaiting = new HtmlReactAttribute("onWaiting", "onWaiting");
 
   static {
 
     ALL_REACT_ATTRIBUTES =
-        Collections.unmodifiableSet(new LinkedHashSet<HtmlReactAttribute>(Arrays.asList(new HtmlReactAttribute[] {ACCEPT, ACCEPT_CHARSET,
-            ACCESSKEY, ACTION, ALLOWFULLSCREEN, ALLOWTRANSPARENCY, ALT, ASYNC, AUTOCOMPLETE, AUTOFOCUS, AUTOPLAY, CAPTURE, CELLPADDING,
-            CELLSPACING, CHARSET, CHALLENGE, CHECKED, CLASSID, CLASSNAME, COLS, COLSPAN, CONTENT, CONTENTEDITABLE, CONTEXTMENU, CONTROLS,
-            COORDS, CROSSORIGIN, DATA, DATETIME, DEFER, DIR, DISABLED, DOWNLOAD, DRAGGABLE, ENCTYPE, FORM, FORMACTION, FORMENCTYPE,
-            FORMMETHOD, FORMNOVALIDATE, FORMTARGET, FRAMEBORDER, HEADERS, HEIGHT, HIDDEN, HIGH, HREF, HREFLANG, HTMLFOR, HTTPEQUIV, ICON,
-            ID, INPUTMODE, KEYPARAMS, KEYTYPE, LABEL, LANG, LIST, LOOP, LOW, MANIFEST, MARGINHEIGHT, MARGINWIDTH, MAX, MAXLENGTH, MEDIA,
-            MEDIAGROUP, METHOD, MIN, MINLENGTH, MULTIPLE, MUTED, NAME, NOVALIDATE, OPEN, OPTIMUM, PATTERN, PLACEHOLDER, POSTER, PRELOAD,
-            RADIOGROUP, READONLY, REL, REQUIRED, ROLE, ROWS, ROWSPAN, SANDBOX, SCOPE, SCOPED, SCROLLING, SEAMLESS, SELECTED, SHAPE, SIZE,
-            SIZES, SPAN, SPELLCHECK, SRC, SRCDOC, SRCSET, START, STEP, STYLE, SUMMARY, TABINDEX, TARGET, TITLE, TYPE, USEMAP, VALUE, WIDTH,
-            WMODE, WRAP, AUTOCAPITALIZE, AUTOCORRECT, PROPERTY, ITEMPROP, ITEMSCOPE, ITEMTYPE, ITEMREF, ITEMID, UNSELECTABLE, RESULTS,
-            AUTOSAVE, CLIPPATH, CX, CY, D, DX, DY, FILL, FILLOPACITY, HEAD, FONTSIZE, FX, FY, GRADIENTTRANSFORM, GRADIENTUNITS, MARKEREND,
-            MARKERMID, MARKERSTART, OFFSET, OPACITY, PATTERNCONTENTUNITS, PATTERNUNITS, POINTS, PRESERVEASPECTRATIO, R, RX, RY,
-            SPREADMETHOD, STOPCOLOR, STOPOPACITY, STROKE, STROKEDASHARRAY, STROKELINECAP, STROKEOPACITY, STROKEWIDTH, TEXTANCHOR,
-            TRANSFORM, VERSION, VIEWBOX, X1, X2, X, XLINKACTUATE, XLINKARCROLE, XLINKHREF, XLINKROLE, XLINKSHOW, XLINKTITLE, XLINKTYPE,
-            XMLBASE, XMLLANG, XMLSPACE, Y1, Y2, Y})));
+        Collections.unmodifiableSet(new LinkedHashSet<HtmlReactAttribute>(Arrays.asList(new HtmlReactAttribute[] {ACCEPT_CHARSET,
+            ACCESSKEY, ACTION, ALLOWFULLSCREEN, ALLOWTRANSPARENCY, AUTOCOMPLETE, AUTOFOCUS, AUTOPLAY, CAPTURE, CELLPADDING, CELLSPACING,
+            CHARSET, CLASSID, CLASSNAME, COLSPAN, CONTENT, CONTENTEDITABLE, CONTEXTMENU, CONTROLS, COORDS, CROSSORIGIN, DATA, DATETIME,
+            DRAGGABLE, ENCTYPE, FORM, FORMACTION, FORMENCTYPE, FORMMETHOD, FORMNOVALIDATE, FORMTARGET, FRAMEBORDER, HREFLANG, HTMLFOR,
+            HTTPEQUIV, ICON, INPUTMODE, KEYPARAMS, KEYTYPE, MARGINHEIGHT, MARGINWIDTH, MAXLENGTH, MEDIAGROUP, NOVALIDATE, RADIOGROUP,
+            READONLY, ROWSPAN, SPELLCHECK, SRCDOC, SRCSET, TABINDEX, USEMAP, AUTOCAPITALIZE, AUTOCORRECT, PROPERTY, ITEMPROP, ITEMSCOPE,
+            ITEMTYPE, ITEMREF, ITEMID, UNSELECTABLE, AUTOSAVE, CLIPPATH, FILLOPACITY, HEAD, FONTSIZE, GRADIENTTRANSFORM, GRADIENTUNITS,
+            MARKEREND, MARKERMID, MARKERSTART, PATTERNCONTENTUNITS, PATTERNUNITS, PRESERVEASPECTRATIO, SPREADMETHOD, STOPCOLOR,
+            STOPOPACITY, STROKEDASHARRAY, STROKELINECAP, STROKEOPACITY, STROKEWIDTH, TEXTANCHOR, VIEWBOX, XLINKACTUATE, XLINKARCROLE,
+            XLINKHREF, XLINKROLE, XLINKSHOW, XLINKTITLE, XLINKTYPE, XMLBASE, XMLLANG, XMLSPACE})));
 
     for (final HtmlReactAttribute element : ALL_REACT_ATTRIBUTES) {
       ATTRIBUTES.storeStandardElement(element);
@@ -306,7 +262,8 @@ public class HtmlReactAttributes {
         return this.repository.get(index);
       }
 
-      final HtmlReactAttribute element = new HtmlReactAttribute(new String(text, offset, len).toLowerCase(), new String(text, offset, len).toLowerCase());
+      final HtmlReactAttribute element =
+          new HtmlReactAttribute(new String(text, offset, len).toLowerCase(), new String(text, offset, len).toLowerCase());
 
       // binary Search returned (-(insertion point) - 1)
       this.repository.add(((index + 1) * -1), element);

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.attoparser.dom.CDATASection;
 import org.attoparser.dom.Comment;
@@ -79,8 +80,9 @@ public class DOMDartWriter {
   public static void writeComment(final Comment comment, final Writer writer) throws IOException {
 
     writeEmpty(currentOffset, writer);
-    writer.write("// ");
+    writer.write("/* ");
     writer.write(comment.getContent());
+    writer.write(" */");
   }
 
   public static void writeDocType(final DocType docType, final Writer writer) throws IOException {
@@ -160,16 +162,30 @@ public class DOMDartWriter {
     writeNextLine(writer);
 
     List<INode> children = filterChildren(element.getChildren());
+    int childCount = children.size();
 
     currentOffset += OFFSET;
-    for (int i = 0; i < children.size(); i++) {
+    for (int i = 0; i < childCount; i++) {
       INode child = children.get(i);
       write(child, writer);
+
+      if ((childCount > 1) && (i == (childCount - 2)) && (children.get(i + 1) instanceof Comment)) {
+        writer.write(' ');
+        writeNextLine(writer);
+        continue;
+      }
+
+      if (child instanceof Comment) {
+        writer.write(' ');
+        writeNextLine(writer);
+        continue;
+      }
 
       if (i < (children.size() - 1)) {
         writer.write(',');
         writer.write(' ');
         writeNextLine(writer);
+        continue;
       }
     }
     writeNextLine(writer);
@@ -185,7 +201,12 @@ public class DOMDartWriter {
     validateNotNull(writer, "Writer cannot be null");
 
     writeEmpty(currentOffset, writer);
-    writer.write("\"" + StringUtils.join(trim(text.getContent()), "\", \"") + "\"");
+
+    String joins = StringUtils.join(trim(text.getContent()), "\", \"");
+
+    if (StringUtils.isEmpty(joins)) return;
+
+    writer.write("\"" + joins + "\"");
   }
 
   public static void writeXmlDeclaration(final XmlDeclaration xmlDeclaration, final Writer writer) throws IOException {
@@ -277,7 +298,8 @@ public class DOMDartWriter {
     for (INode node : children) {
       if (node instanceof Text) {
         String[] content = trim(((Text) node).getContent());
-        if ((content == null) || (content.length == 0)) continue;
+        String joinedString = StringUtils.join(content);
+        if (StringUtils.isEmpty(joinedString)) continue;
       }
 
       result.add(node);
