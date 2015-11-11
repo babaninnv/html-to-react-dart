@@ -49,5 +49,8 @@ div({"class": "col-md-4 col-sm-4"},
 2. Run gradlew file with task installDist: ```gradlew.bat installDist```
 3. Сhange root folder to build -> install -> html-to-react-dart -> bin: ```<current folder>\build\install\html-to-react-dart\bin\```
 4. Run html-to-react-dart file with arguments:
-  * **-file** - file name in current(bin) folder. This is **required** arg. Example: ```html-to-react-dart.bat -file index.html```
-  * **-out**  - directory which will be created results. This is arg not required. Example: ```html-to-react-dart.bat -out output```
+  * **-h --help**    - list of commands with description
+  * **-file**        - file name in current(bin) folder. This is **Required** arg. Example: ```html-to-react-dart.bat -file index.html```
+  * **-out**         - directory which will be created results. Optional. Example: ```html-to-react-dart.bat -out output```
+  * **-wrap-class**  - it wraps the converted DOM tree is dart class infrastructure. Default it use name from '-file' value. Optional. Default it use name from '-file' value. Optional
+  * **-class-name**  - if you used '-wrap-class' then it parameter set class name for class wrapper. Value is class name in upper camel case style. Ex.: ReactDartClass. Optional

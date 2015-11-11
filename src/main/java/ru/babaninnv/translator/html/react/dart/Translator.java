@@ -17,9 +17,12 @@ import org.attoparser.dom.Document;
 import org.attoparser.dom.Element;
 import org.attoparser.dom.INode;
 
-import com.beust.jcommander.JCommander;
-
+import ru.babaninnv.translator.html.react.dart.definitions.DartClass;
 import ru.babaninnv.translator.html.react.dart.dom.DOMDartWriter;
+import ru.babaninnv.translator.html.react.dart.templates.DartClassWriter;
+
+import com.beust.jcommander.JCommander;
+import com.google.common.base.CaseFormat;
 
 public class Translator {
   private Document document;
@@ -51,34 +54,17 @@ public class Translator {
 
     String baseName = FilenameUtils.getBaseName(file.getName());
 
-
-
     try {
-
-      writer = new FileWriter(new File(baseName + ".dart"));
-
-      System.out.println("Try to read file: " + file.getAbsolutePath() + ", encoding: " + writer.getEncoding());
+      System.out.println("Try to read file: " + file.getAbsolutePath());
 
       final InputStream is = new FileInputStream(file);
       final Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
 
       DOMMarkupParser parser = new DOMMarkupParser(ParseConfiguration.htmlConfiguration());
       document = parser.parse(reader);
+      document = prepareDocument(document);
 
-      if ((document.getChildren() != null) && (document.getChildren().size() > 1)) {
-
-        Document wrappedDocument = new Document("document-name");
-        Element divContainer = new Element("div");
-
-        for (INode node: document.getChildren()) {
-          divContainer.addChild(node);
-        }
-
-        wrappedDocument.addChild(divContainer);
-        document = wrappedDocument;
-      }
-
-      DOMDartWriter.writeDocument(document, writer);
+      chooseScenary(baseName);
 
       System.out.println("Convert complete");
 
@@ -88,5 +74,58 @@ public class Translator {
     } catch (ParseException | IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void chooseScenary(String baseName) throws IOException, ParseException {
+
+    if (Boolean.valueOf(cli.getWrapClass())) {
+      String wrapperClassNameCamelCase = cli.getClassName();
+      String wrapperClassNameUnderscore = baseName;
+
+      if (wrapperClassNameCamelCase.length() > 0) {
+        wrapperClassNameUnderscore = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, wrapperClassNameCamelCase);
+      } else {
+        wrapperClassNameCamelCase = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, wrapperClassNameUnderscore);
+      }
+
+      writer = new FileWriter(new File(wrapperClassNameUnderscore + ".dart"));
+
+      // convert HTML with class wrapper
+      convertHtmlWithClassWrapper(wrapperClassNameCamelCase, document);
+    } else {
+      writer = new FileWriter(new File(baseName + ".dart"));
+
+     // convert HTML only
+      convertOnlyHtml(document);
+    }
+  }
+
+  private void convertHtmlWithClassWrapper(final String className, final Document document) throws ParseException, IOException {
+
+    DartClass dartClass = new DartClass();
+    dartClass.imports = new String[] { "package:react/react.dart" };
+    dartClass.className = className;
+    dartClass.document = document;
+
+    DartClassWriter.write(dartClass, writer);
+
+  }
+
+  private void convertOnlyHtml(final Document document) throws ParseException, IOException {
+    DOMDartWriter.writeDocument(document, writer);
+  }
+
+  private Document prepareDocument(Document document) {
+    if ((document.getChildren() == null) || (document.getChildren().size() <= 1)) return document;
+
+    Document wrappedDocument = new Document("document-name");
+    Element divContainer = new Element("div");
+
+    for (INode node: document.getChildren()) divContainer.addChild(node);
+
+    wrappedDocument.addChild(divContainer);
+
+    return wrappedDocument;
+
   }
 }

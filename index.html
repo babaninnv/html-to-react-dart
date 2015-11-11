@@ -1,132 +1,75 @@
-<div class="col-md-9 col-sm-9">
-  <!-- Useful Elements -->
-  <div class="panel panel-default">
-    <div class="panel-heading panel-heading-transparent">
-      <h2 class="panel-title">Form Validation</h2>
-    </div>
+  <!-- textarea -->
+  <div class="fancy-form">
+  	<textarea rows="5" class="form-control word-count" data-maxlength="200" data-info="textarea-words-info" placeholder="Fancy Textarea..."></textarea>
 
-    <div class="panel-body">
+  	<i class="fa fa-comments"><!-- icon --></i>
 
-      <form class="validate" action="php/contact.php" method="post" enctype="multipart/form-data" data-success="Sent! Thank you!" data-toastr-position="top-right" novalidate="novalidate">
-        <fieldset>
-          <!-- required [php action request] -->
-          <input type="hidden" name="action" value="contact_send">
+  	<span class="fancy-hint size-11 text-muted">
+  		<strong>Hint:</strong> 200 words allowed!
+  		<span class="pull-right">
+  			<span id="textarea-words-info">0/200</span> Words
+  		</span>
+  	</span>
 
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-6 col-sm-6">
-                <label>First Name *</label>
-                <input type="text" name="contact[first_name]" value="" class="form-control required" data-cip-id="cIPJQ342845639">
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <label>Last Name *</label>
-                <input type="text" name="contact[last_name]" value="" class="form-control required" data-cip-id="cIPJQ342845640">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-6 col-sm-6">
-                <label>Email *</label>
-                <input type="email" name="contact[email]" value="" class="form-control required" data-cip-id="cIPJQ342845641">
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <label>Phone *</label>
-                <input type="text" name="contact[phone]" value="" class="form-control required" data-cip-id="cIPJQ342845642">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-12 col-sm-12">
-                <label>Position *</label>
-                <select name="contact[position]" class="form-control pointer required" data-cip-id="cIPJQ342845647">
-                  <option value="">--- Select ---</option>
-                  <option value="Marketing">PR &amp; Marketing</option>
-                  <option value="Developer">Web Developer</option>
-                  <option value="php">PHP Programmer</option>
-                  <option value="Javascript">Javascript Programmer</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-6 col-sm-6">
-                <label>Expected Salary *</label>
-                <input type="text" name="contact[expected_salary]" value="" class="form-control required" data-cip-id="cIPJQ342845643">
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <label>Start Date *</label>
-                <input type="text" name="contact[start_date]" value="" class="form-control datepicker required" data-format="yyyy-mm-dd" data-lang="en" data-rtl="false" data-cip-id="cIPJQ342845644">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-12 col-sm-12">
-                <label>Experience *</label>
-                <textarea name="contact[experience]" rows="4" class="form-control required"></textarea>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-12 col-sm-12">
-                <label>
-                  Website
-                  <small class="text-muted">- optional</small>
-                </label>
-                <input type="text" name="contact[website]" placeholder="http://" class="form-control" data-cip-id="cIPJQ342845645">
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-12">
-                <label>
-                  File Attachment
-                  <small class="text-muted">Curriculum Vitae - optional</small>
-                </label>
-
-                <!-- custom file upload -->
-                <div class="fancy-file-upload fancy-file-primary">
-                  <i class="fa fa-upload"></i>
-                  <input type="file" class="form-control" name="contact[attachment]" onchange="jQuery(this).next('input').val(this.value);">
-                  <input type="text" class="form-control" placeholder="no file selected" readonly="" data-cip-id="cIPJQ342845646">
-                  <span class="button">Choose File</span>
-                </div>
-                <small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
-
-              </div>
-            </div>
-          </div>
-
-        </fieldset>
-
-        <div class="row">
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-3d btn-teal btn-xlg btn-block margin-top-30">
-              SEND APPLICATION
-              <span class="block font-lato">We'll get back to you within 48 hours</span>
-            </button>
-          </div>
-        </div>
-
-      <input type="hidden" name="is_ajax" value="true"></form>
-
-
-    </div>
-
-    <div class="panel-footer">
-      <a href="javascript:;" onclick="jQuery('#pre-4').slideToggle();" class="btn btn-success btn-xs">Show Code</a>
-    </div>
   </div>
-  <!-- /Useful Elements -->
-</div>
+
+
+  <!-- input -->
+  <div class="fancy-form">
+  	<i class="fa fa-user"></i>
+
+  	<input type="tel" class="form-control" placeholder="Fancy Input + Dedicated Tooltip">
+
+  	<!-- tooltip - optional, bootstrap tooltip can be used instead -->
+  	<span class="fancy-tooltip top-left"> <!-- positions: .top-left | .top-right -->
+  		<em>Это тултип!</em>
+  	</span>
+  </div>
+
+
+  <!-- select -->
+  <div class="fancy-form fancy-form-select">
+  	<select class="form-control">
+  		<option value="">--- Fancy Select ---</option>
+  		<option value="1">Option 1</option>
+  		<option value="2">option 2</option>
+  		<option value="3">option 3</option>
+  	</select>
+
+  	<!--
+  		.fancy-arrow
+  		.fancy-arrow-double
+  	-->
+  	<i class="fancy-arrow"></i>
+  </div>
+
+
+  <!-- select2 -->
+  <div class="fancy-form fancy-form-select">
+  	<select class="form-control select2">
+  		<option value="">--- Select 2 ---</option>
+  		<option value="1">Option 1</option>
+  		<option value="2">option 2</option>
+  		<option value="3">option 3</option>
+  	</select>
+
+  	<!--
+  		.fancy-arrow
+  		.fancy-arrow-double
+  	-->
+  	<i class="fancy-arrow-"></i>
+  </div>
+
+
+  <!-- radio -->
+  <label class="radio">
+  	<input type="radio" name="radio-btn" value="1" checked="checked">
+  	<i></i> Radio 1
+  </label>
+
+
+  <!-- checkbox -->
+  <label class="checkbox">
+  	<input type="checkbox" value="1">
+  	<i></i> Checkbox 1
+  </label>
