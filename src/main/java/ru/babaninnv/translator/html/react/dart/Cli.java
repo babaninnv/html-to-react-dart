@@ -34,4 +34,8 @@ public class Cli {
   public String getClassName() {
     return className;
   }
+
+  public boolean isHelp() {
+    return help;
+  }
 }

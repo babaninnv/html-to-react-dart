@@ -35,6 +35,11 @@ public class Translator {
     JCommander jCommander = new JCommander(cli);
     jCommander.parse(args);
 
+    if (cli.isHelp()) {
+      jCommander.usage();
+      return;
+    }
+
     Translator translator = new Translator();
     translator.setParameters(cli);
     translator.translate();
