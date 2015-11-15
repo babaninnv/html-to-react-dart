@@ -29,6 +29,7 @@ public class DartClassWriter {
       w.write('\'');
       w.write(importItem);
       w.write('\'');
+      w.write(';');
       writeNextLine(w);
 
     }
